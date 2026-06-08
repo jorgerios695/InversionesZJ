@@ -15,4 +15,6 @@ public class User : BaseEntity
     // Navigeiton 
     public ICollection<UserRole> userRoles { get; set; } = new List<UserRole>();
 
+
+
 }

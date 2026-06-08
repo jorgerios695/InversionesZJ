@@ -5,7 +5,7 @@ using System.Text;
 
 namespace InversionesZJ.Domain.Entities;
 
-public class Payment
+public class Payment : BaseEntity
 {
     public decimal Amount { get; set; }
     public PaymentType PaymentType { get; set; }

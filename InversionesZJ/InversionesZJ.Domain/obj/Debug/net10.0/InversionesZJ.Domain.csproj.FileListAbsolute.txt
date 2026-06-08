@@ -9,3 +9,4 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domai
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\refint\InversionesZJ.Domain.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\InversionesZJ.Domain.pdb
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\ref\InversionesZJ.Domain.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\InversionesZJ.Domain.sourcelink.json

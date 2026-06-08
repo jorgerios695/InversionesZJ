@@ -13,7 +13,7 @@ public class Delinquency : BaseEntity
     public bool IsResolved { get; set; } = false;
 
     // Foreign Key
-    public int LoanId { get; set; }
+    public long LoanId { get; set; }
 
     // Navigation
     public Loan Loan { get; set; } = null!;

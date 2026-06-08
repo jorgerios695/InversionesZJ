@@ -15,15 +15,16 @@ namespace InversionesZJ.Domain.Entities;
     public string? Observations { get; set; }
 
     // foreing  Keys
-    public int ClientId { get; set; }
-    public int ResponsibleId { get; set; }
-    public int loanTypeId { get; set; }
+    public long ClientId { get; set; }
+    public long ResponsibleId { get; set; }
+    public long loanTypeId { get; set; }
 
     // navigation 
     public Client Client { get; set; } = null!;
     public Responsible Responsible { get; set; } = null!;
     public LoanType LoanType { get; set; } = null!;
     public ICollection<Payment> Payments { get; set; } = new List<Payment>();
+    public ICollection<Delinquency> Delinquencies { get; set; } = new List<Delinquency>();
 
-         
+
 }

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace InversionesZJ.Domain.Entities
+namespace InversionesZJ.Domain.Entities;
+
+public class GeneralParameter : BaseEntity
 {
-    internal class GeneralParameter
-    {
-    }
+    public string Key { get; set; } = string.Empty;
+    public string Value { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
 }
+                        

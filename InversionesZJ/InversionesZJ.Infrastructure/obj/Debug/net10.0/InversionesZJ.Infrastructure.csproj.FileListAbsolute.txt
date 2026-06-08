@@ -17,3 +17,4 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infra
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\InversionesZJ.Infrastructure.pdb
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\InversionesZJ.Infrastructure.genruntimeconfig.cache
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\ref\InversionesZJ.Infrastructure.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\InversionesZJ.Infrastructure.sourcelink.json

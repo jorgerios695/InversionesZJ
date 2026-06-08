@@ -219,3 +219,4 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\o
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\InversionesZJ.Web.pdb
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\InversionesZJ.Web.genruntimeconfig.cache
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\ref\InversionesZJ.Web.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\InversionesZJ.Web.sourcelink.json

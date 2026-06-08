@@ -13,3 +13,4 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Appli
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Application\obj\Debug\net10.0\refint\InversionesZJ.Application.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Application\obj\Debug\net10.0\InversionesZJ.Application.pdb
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Application\obj\Debug\net10.0\ref\InversionesZJ.Application.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Application\obj\Debug\net10.0\InversionesZJ.Application.sourcelink.json
