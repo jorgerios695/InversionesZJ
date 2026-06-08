@@ -1,0 +1,11 @@
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\bin\Debug\net10.0\InversionesZJ.Domain.deps.json
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\bin\Debug\net10.0\InversionesZJ.Domain.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\bin\Debug\net10.0\InversionesZJ.Domain.pdb
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\InversionesZJ.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\InversionesZJ.Domain.AssemblyInfoInputs.cache
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\InversionesZJ.Domain.AssemblyInfo.cs
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\InversionesZJ.Domain.csproj.CoreCompileInputs.cache
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\InversionesZJ.Domain.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\refint\InversionesZJ.Domain.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\InversionesZJ.Domain.pdb
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Domain\obj\Debug\net10.0\ref\InversionesZJ.Domain.dll

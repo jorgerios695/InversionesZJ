@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="InversionesZJ.Application/InversionesZJ.Application.csproj" />
+  <Project Path="InversionesZJ.Domain/InversionesZJ.Domain.csproj" />
+  <Project Path="InversionesZJ.Infrastructure/InversionesZJ.Infrastructure.csproj" />
+  <Project Path="InversionesZJ.Web/InversionesZJ.Web.csproj" />
+</Solution>

@@ -1,0 +1,29 @@
+﻿using InversionesZJ.Domain.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace InversionesZJ.Domain.Entities;
+ public class Loan : BaseEntity
+{
+    public decimal Capital {  get; set; }
+    public decimal DailyRate { get; set; }
+    public int ScheduleDays { get; set; }
+    public DateTime StartDatee {  get; set; }
+    public DateTime DueDate {  get; set; }
+    public LoanStatus Status { get; set; } = LoanStatus.Active;
+    public string? Observations { get; set; }
+
+    // foreing  Keys
+    public int ClientId { get; set; }
+    public int ResponsibleId { get; set; }
+    public int loanTypeId { get; set; }
+
+    // navigation 
+    public Client Client { get; set; } = null!;
+    public Responsible Responsible { get; set; } = null!;
+    public LoanType LoanType { get; set; } = null!;
+    public ICollection<Payment> Payments { get; set; } = new List<Payment>();
+
+         
+}
