@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InversionesZJ.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fcd62cc2ba500841c39bef7d750a4aef9bec4c76")]
 [assembly: System.Reflection.AssemblyProductAttribute("InversionesZJ.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InversionesZJ.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
