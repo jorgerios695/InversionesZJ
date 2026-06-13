@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InversionesZJ.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260608210451_InitialCreate")]
+    [Migration("20260610020447_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -492,6 +492,10 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("ÚpdatedAt")
                         .HasColumnType("datetime2");
 
@@ -500,7 +504,10 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("users", "SEC");
+                    b.HasIndex("Username")
+                        .IsUnique();
+
+                    b.ToTable("Users", "SEC");
 
                     b.HasData(
                         new
@@ -508,11 +515,12 @@ namespace InversionesZJ.Infrastructure.Migrations
                             Id = 1L,
                             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             CreatedBy = "System",
-                            Email = "jorge.rios@excellentiam.co",
+                            Email = "admin@inversioneszj.com",
                             FailedAttempts = 0,
                             FullName = "Administrator",
                             IsActive = true,
-                            PasswordHash = "pending",
+                            PasswordHash = "$2a$11$ZMbZrOo3wFK5Ym8p3V3HJOxQ9Kz8mN2vL5r7Y4tX1wP6sU0cE9Dei",
+                            Username = "admin",
                             ÚpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });

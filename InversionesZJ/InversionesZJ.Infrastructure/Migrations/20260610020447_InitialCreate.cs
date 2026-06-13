@@ -133,7 +133,7 @@ namespace InversionesZJ.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "users",
+                name: "Users",
                 schema: "SEC",
                 columns: table => new
                 {
@@ -141,6 +141,7 @@ namespace InversionesZJ.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FullName = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FailedAttempts = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     LockedUntil = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -152,7 +153,7 @@ namespace InversionesZJ.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_users", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -225,10 +226,10 @@ namespace InversionesZJ.Infrastructure.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserRoles_users_UserId",
+                        name: "FK_UserRoles_Users_UserId",
                         column: x => x.UserId,
                         principalSchema: "SEC",
-                        principalTable: "users",
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -306,9 +307,9 @@ namespace InversionesZJ.Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 schema: "SEC",
-                table: "users",
-                columns: new[] { "Id", "CreatedAt", "CreatedBy", "Email", "FullName", "IsActive", "LockedUntil", "PasswordHash", "UpdatedBy", "ÚpdatedAt" },
-                values: new object[] { 1L, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "System", "jorge.rios@excellentiam.co", "Administrator", true, null, "pending", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
+                table: "Users",
+                columns: new[] { "Id", "CreatedAt", "CreatedBy", "Email", "FullName", "IsActive", "LockedUntil", "PasswordHash", "UpdatedBy", "Username", "ÚpdatedAt" },
+                values: new object[] { 1L, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "System", "admin@inversioneszj.com", "Administrator", true, null, "$2a$11$ZMbZrOo3wFK5Ym8p3V3HJOxQ9Kz8mN2vL5r7Y4tX1wP6sU0cE9Dei", null, "admin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.InsertData(
                 schema: "SEC",
@@ -367,10 +368,17 @@ namespace InversionesZJ.Infrastructure.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_users_Email",
+                name: "IX_Users_Email",
                 schema: "SEC",
-                table: "users",
+                table: "Users",
                 column: "Email",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Username",
+                schema: "SEC",
+                table: "Users",
+                column: "Username",
                 unique: true);
         }
 
@@ -402,7 +410,7 @@ namespace InversionesZJ.Infrastructure.Migrations
                 schema: "SEC");
 
             migrationBuilder.DropTable(
-                name: "users",
+                name: "Users",
                 schema: "SEC");
 
             migrationBuilder.DropTable(

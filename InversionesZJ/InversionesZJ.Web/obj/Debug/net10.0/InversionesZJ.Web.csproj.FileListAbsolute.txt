@@ -9,9 +9,11 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\b
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\InversionesZJ.Web.pdb
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Azure.Core.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Azure.Identity.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\BCrypt-Net-Next.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Humanizer.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\MediatR.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\MediatR.Contracts.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Microsoft.Build.Framework.dll
@@ -25,6 +27,7 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\b
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
@@ -149,6 +152,7 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\o
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\InversionesZJ.Web.AssemblyInfo.cs
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\InversionesZJ.Web.csproj.CoreCompileInputs.cache
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\InversionesZJ.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\InversionesZJ.Web.sourcelink.json
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
@@ -203,8 +207,6 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\o
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\vmnkhrybjf-{0}-63fj8s7r0e-63fj8s7r0e.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\vfopt0bk5o-{0}-0j3bgjxly4-0j3bgjxly4.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\x5g3jzvb7g-{0}-abdmv1u4y3-abdmv1u4y3.gz
-C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\jl3gzw0vww-{0}-ej96puwv3k-ej96puwv3k.gz
-C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\71hje19r3q-{0}-cj5793hgrt-cj5793hgrt.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\rj2u3p2iab-{0}-otcdvgc2r4-otcdvgc2r4.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\ur6676k7w1-{0}-otcdvgc2r4-otcdvgc2r4.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\staticwebassets.build.json
@@ -219,4 +221,5 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\o
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\InversionesZJ.Web.pdb
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\InversionesZJ.Web.genruntimeconfig.cache
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\ref\InversionesZJ.Web.dll
-C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\InversionesZJ.Web.sourcelink.json
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\jl3gzw0vww-{0}-ne14ti1q68-ne14ti1q68.gz
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\71hje19r3q-{0}-ig5xotzpx5-ig5xotzpx5.gz

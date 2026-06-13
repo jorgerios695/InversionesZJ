@@ -11,10 +11,10 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infra
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\InversionesZJ.Infrastructure.AssemblyInfoInputs.cache
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\InversionesZJ.Infrastructure.AssemblyInfo.cs
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\InversionesZJ.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\InversionesZJ.Infrastructure.sourcelink.json
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\Inversio.2E6C3CF9.Up2Date
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\InversionesZJ.Infrastructure.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\refint\InversionesZJ.Infrastructure.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\InversionesZJ.Infrastructure.pdb
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\InversionesZJ.Infrastructure.genruntimeconfig.cache
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\ref\InversionesZJ.Infrastructure.dll
-C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Infrastructure\obj\Debug\net10.0\InversionesZJ.Infrastructure.sourcelink.json
