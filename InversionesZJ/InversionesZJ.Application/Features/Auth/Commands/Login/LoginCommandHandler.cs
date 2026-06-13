@@ -4,6 +4,7 @@ using InversionesZJ.Domain.Interfaces;
 using MediatR;
 using InversionesZJ.Domain.DTO.Auth;
 using InversionesZJ.Domain.Entities;
+using InversionesZJ.Domain.Enums.Login;
 
 namespace InversionesZJ.Application.Features.Auth.Commands.Login;
 
@@ -20,19 +21,35 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
 
     public async Task<LoginResponse> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
-        var dto = request.loginDto; 
+        var dto = request.loginDto;
         var user = await _userRepository.GetByUsernameAsync(dto.Username);
-        var errors = await Validate(user, dto, cancellationToken);
 
-        if (errors.Any())
+        var error = Validate(user, dto);
+
+        if (error != LoginErrorType.None)
+        {
+            if (error == LoginErrorType.InvalidPassword)
+            {
+                user.FailedAttempts++;
+
+                if (user.FailedAttempts >= 5)
+                {
+                    user.LockedUntil = DateTime.UtcNow.AddMinutes(15);
+                    user.FailedAttempts = 0;
+                }
+
+                await _userRepository.UpdateAsync(user, cancellationToken);
+            }
+
             return new LoginResponse
             {
                 Success = false,
                 ResponseCode = "400",
-                ResponseMessage = string.Join(", ", errors.Select(e => $"{e.Property} {e.Message}"))
+                ResponseMessage = GetErrorMessage(error, user)
             };
+        }
 
-
+        // Login exitoso
         user.FailedAttempts = 0;
         user.LockedUntil = null;
         await _userRepository.UpdateAsync(user, cancellationToken);
@@ -47,35 +64,28 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
             ResponseCode = "200",
             ResponseMessage = "Login successful"
         };
-    
     }
 
-
-    private async Task<List<(string Property, string Message)>> Validate (User user, LoginDto dto, CancellationToken ct)
+    private string GetErrorMessage(LoginErrorType error, User user) => error switch
     {
-        var errors  = new List<(string ,string)>();
+        LoginErrorType.UserNotFound => "Invalid username or password",
+        LoginErrorType.InvalidPassword => "Invalid username or password",
+        LoginErrorType.UserLocked => $"User blocked until {user.LockedUntil!.Value:HH:mm}",
+        _ => "Unknown error"
+    };
 
+
+    private LoginErrorType Validate(User user, LoginDto dto)
+    {
         if (user is null)
-            errors.Add(("username", "Invalid username or password"));
+            return LoginErrorType.UserNotFound;
 
         if (user.LockedUntil.HasValue && user.LockedUntil > DateTime.UtcNow)
-            errors.Add(("User", $"User blocked until {user.LockedUntil.Value:HH:mm}"));
-           
-        bool validPassword = BC.Verify(dto.Password, user.PasswordHash);
+            return LoginErrorType.UserLocked;
 
-        if (!validPassword)
-        {
-            user.FailedAttempts++;
+        if (!BC.Verify(dto.Password, user.PasswordHash))
+            return LoginErrorType.InvalidPassword;
 
-            if (user.FailedAttempts >= 5)
-            {
-                user.LockedUntil = DateTime.UtcNow.AddMinutes(15);
-                user.FailedAttempts = 0;
-            }
-
-            await _userRepository.UpdateAsync(user, ct);
-            errors.Add(("User", "Invalid username or password")); 
-        }
-        return errors;
+        return LoginErrorType.None;
     }
 }
