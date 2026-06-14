@@ -1,9 +1,11 @@
 using InversionesZJ.Application.Common;
 using InversionesZJ.Application.Interfaces;
-using InversionesZJ.Domain.Interfaces;
+using InversionesZJ.Domain.Interfaces.common;
+using InversionesZJ.Domain.Interfaces.Security;
 using InversionesZJ.Infrastructure.Data;
 using InversionesZJ.Infrastructure.Data.Configurations;
-using InversionesZJ.Infrastructure.Repositories;
+using InversionesZJ.Infrastructure.Repositories.Common;
+using InversionesZJ.Infrastructure.Repositories.Security;
 using InversionesZJ.Infrastructure.Services;
 using InversionesZJ.Web.Components;
 using InversionesZJ.Web.Services;
@@ -30,6 +32,8 @@ builder.Services.AddMediatR(cfg =>
 // JWT Settings
 builder.Services.Configure<JwtSettings>(
     builder.Configuration.GetSection("JwtSettings"));
+
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 // JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();

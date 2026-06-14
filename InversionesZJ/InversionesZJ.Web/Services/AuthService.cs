@@ -1,5 +1,5 @@
 ﻿using InversionesZJ.Application.Features.Auth.Commands.Login;
-using InversionesZJ.Domain.DTO.Auth;
+using InversionesZJ.Application.DTO.Auth;
 using MediatR;
 
 namespace InversionesZJ.Web.Services;

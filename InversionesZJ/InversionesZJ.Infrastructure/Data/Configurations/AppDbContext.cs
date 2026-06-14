@@ -1,4 +1,7 @@
-﻿using InversionesZJ.Domain.Entities;
+﻿using InversionesZJ.Domain.Entities.Clients;
+using InversionesZJ.Domain.Entities.Operations;
+using InversionesZJ.Domain.Entities.Parameters;
+using InversionesZJ.Domain.Entities.Security;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

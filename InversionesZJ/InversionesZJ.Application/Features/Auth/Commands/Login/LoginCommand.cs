@@ -1,4 +1,4 @@
-﻿using InversionesZJ.Domain.DTO.Auth;
+﻿using InversionesZJ.Application.DTO.Auth;
 using MediatR;
 using System;
 using System.Collections.Generic;

@@ -1,6 +1,6 @@
-﻿ using InversionesZJ.Application.Common;
+﻿using InversionesZJ.Application.Common;
 using InversionesZJ.Application.Interfaces;
-using InversionesZJ.Domain.Entities;
+using InversionesZJ.Domain.Entities.Security;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;

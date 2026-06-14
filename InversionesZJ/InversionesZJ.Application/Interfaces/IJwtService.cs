@@ -1,4 +1,4 @@
-﻿using InversionesZJ.Domain.Entities;
+﻿using InversionesZJ.Domain.Entities.Security;
 using System;
 using System.Collections.Generic;
 using System.Text;

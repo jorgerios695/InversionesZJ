@@ -1,10 +1,10 @@
 ﻿using BC = BCrypt.Net.BCrypt;
 using InversionesZJ.Application.Interfaces;
-using InversionesZJ.Domain.Interfaces;
 using MediatR;
-using InversionesZJ.Domain.DTO.Auth;
-using InversionesZJ.Domain.Entities;
+using InversionesZJ.Application.DTO.Auth;
 using InversionesZJ.Domain.Enums.Login;
+using InversionesZJ.Domain.Interfaces.Security;
+using InversionesZJ.Domain.Entities.Security;
 
 namespace InversionesZJ.Application.Features.Auth.Commands.Login;
 
