@@ -1,0 +1,88 @@
+@page "/login"
+@layout LoginLayout
+@using InversionesZJ.Application.DTO.Auth
+@using InversionesZJ.Web.Services
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@inject AuthService AuthService
+@inject NavigationManager Navigation
+
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <h2>InversionesZJ</h2>
+            <p>Ingresa tus credenciales</p>
+        </div>
+
+        <div class="login-body">
+            @if (!string.IsNullOrEmpty(errorMessage))
+            {
+                <div class="alert-error">
+                    @errorMessage
+                </div>
+            }
+
+            <EditForm Model="Input" OnValidSubmit="HandleLogin" FormName="login" method="post">
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <InputText @bind-Value="Input.Username" class="form-control" placeholder="Ingresa tu usuario" />
+                </div>
+
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <InputText type="password" @bind-Value="Input.Password" class="form-control" placeholder="Ingresa tu contraseña" />
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <span>Ingresar</span>
+                </button>
+            </EditForm>
+
+            <div class="forgot-link">
+                <a href="/forgot-password">¿Olvidaste tu contraseña?</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [SupplyParameterFromForm]
+    private LoginInputModel Input { get; set; } = new();
+
+    private string errorMessage = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        // Si el usuario ya tiene cookie válida, no tiene sentido mostrar el login.
+        if (HttpContext.User.Identity?.IsAuthenticated == true)
+            Navigation.NavigateTo("/");
+    }
+
+    private async Task HandleLogin()
+    {
+        var response = await AuthService.LoginAsync(Input.Username, Input.Password);
+
+        if (response.Success && response.ResponseObject is LoggedUserDto user)
+        {
+            // Estamos dentro de una petición HTTP real (POST), así que aquí
+            // sí se puede escribir la cookie de autenticación.
+            var principal = ClaimsBuilder.Build(user);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            Navigation.NavigateTo("/");
+        }
+        else
+        {
+            errorMessage = response.ResponseMessage;
+        }
+    }
+
+    public class LoginInputModel
+    {
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+}

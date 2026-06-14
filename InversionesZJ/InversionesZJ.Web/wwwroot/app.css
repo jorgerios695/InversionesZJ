@@ -58,3 +58,128 @@ h1:focus {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+/* ===== Estilos compartidos de autenticación ===== */
+
+.login-card {
+    width: 100%;
+    max-width: 620px;
+    background: #141414;
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    padding: 70px 80px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    margin: 0 auto;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+    .login-header h2 {
+        color: #1db954;
+        font-size: 44px;
+        font-weight: 700;
+        margin: 0 0 10px 0;
+        letter-spacing: 0.5px;
+    }
+
+    .login-header p {
+        color: #888;
+        font-size: 18px;
+        margin: 0;
+    }
+
+.form-group {
+    margin-bottom: 28px;
+}
+
+    .form-group label {
+        display: block;
+        color: #ccc;
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: 500;
+    }
+
+    .form-group input {
+        width: 100%;
+        box-sizing: border-box;
+        background: #1e1e1e;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 16px 18px;
+        color: #fff;
+        font-size: 17px;
+        transition: border-color 0.2s;
+    }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1db954;
+        }
+
+        .form-group input::placeholder {
+            color: #555;
+        }
+
+.btn-login {
+    width: 100%;
+    background: linear-gradient(135deg, #1db954 0%, #14823b 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-top: 16px;
+}
+
+    .btn-login:hover {
+        opacity: 0.9;
+    }
+
+    .btn-login:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+.forgot-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .forgot-link a {
+        color: #1db954;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+        .forgot-link a:hover {
+            text-decoration: underline;
+        }
+
+.alert-error {
+    background: rgba(220, 53, 69, 0.1);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    color: #ff6b6b;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.alert-info {
+    background: rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(29, 185, 84, 0.3);
+    color: #1db954;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    text-align: center;
+}

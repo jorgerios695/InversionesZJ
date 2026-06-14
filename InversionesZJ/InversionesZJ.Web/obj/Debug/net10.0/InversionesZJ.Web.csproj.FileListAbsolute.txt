@@ -161,7 +161,6 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\o
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\scopedcss\Components\Layout\ReconnectModal.razor.rz.scp.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\scopedcss\bundle\InversionesZJ.Web.styles.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\scopedcss\projectbundle\InversionesZJ.Web.bundle.scp.css
-C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\gffh3e0hor-{0}-khy4lop6wu-khy4lop6wu.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\mi577dj9b9-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\rz81psz5sd-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\sv34a1p62s-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -207,14 +206,11 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\o
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\vmnkhrybjf-{0}-63fj8s7r0e-63fj8s7r0e.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\vfopt0bk5o-{0}-0j3bgjxly4-0j3bgjxly4.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\x5g3jzvb7g-{0}-abdmv1u4y3-abdmv1u4y3.gz
-C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\rj2u3p2iab-{0}-otcdvgc2r4-otcdvgc2r4.gz
-C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\ur6676k7w1-{0}-otcdvgc2r4-otcdvgc2r4.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\staticwebassets.build.json
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\staticwebassets.development.json
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\swae.build.ex.cache
-C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\Inversio.3EECDE1C.Up2Date
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\InversionesZJ.Web.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\refint\InversionesZJ.Web.dll
@@ -223,3 +219,11 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\o
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\ref\InversionesZJ.Web.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\jl3gzw0vww-{0}-ne14ti1q68-ne14ti1q68.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\71hje19r3q-{0}-ig5xotzpx5-ig5xotzpx5.gz
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\scopedcss\Components\Layout\LoginLayout.razor.rz.scp.css
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\MailKit.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\MimeKit.dll
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\gffh3e0hor-{0}-e43g56xu8s-e43g56xu8s.gz
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\rj2u3p2iab-{0}-0jv78u4zoe-0jv78u4zoe.gz
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\ur6676k7w1-{0}-0jv78u4zoe-0jv78u4zoe.gz
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

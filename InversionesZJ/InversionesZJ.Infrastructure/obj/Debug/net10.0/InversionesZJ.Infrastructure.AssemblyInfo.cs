@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InversionesZJ.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e62b96b51911cca5e62e5769c069c059d18cffc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e76a7e992d689288445a9160037c4c1c4168f81c")]
 [assembly: System.Reflection.AssemblyProductAttribute("InversionesZJ.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InversionesZJ.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

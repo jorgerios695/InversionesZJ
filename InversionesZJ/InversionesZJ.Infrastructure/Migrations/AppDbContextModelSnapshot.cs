@@ -22,7 +22,7 @@ namespace InversionesZJ.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Client", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Clients.Client", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -83,7 +83,50 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.ToTable("Clients", "CLI");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Delinquency", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Clients.Responsible", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PhoneNumber")
+                        .HasMaxLength(20)
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ÚpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Responsibles", "CLI");
+                });
+
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Operations.Delinquency", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -131,54 +174,7 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.ToTable("Delinquencies", "OPE");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.GeneralParameter", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Key")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<DateTime>("ÚpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Key")
-                        .IsUnique();
-
-                    b.ToTable("GeneralParameters", "PAR");
-                });
-
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Loan", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Operations.Loan", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -244,48 +240,7 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.ToTable("Loans", "OPE");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.LoanType", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("DefaultDailyRate")
-                        .HasColumnType("decimal(10,4)");
-
-                    b.Property<string>("DefaultDays")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ÚpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LoanTypes", "PAR");
-                });
-
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Payment", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Operations.Payment", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -332,7 +287,7 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.ToTable("Payments", "OPE");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Responsible", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Parameters.GeneralParameter", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -347,22 +302,67 @@ namespace InversionesZJ.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PhoneNumber")
-                        .HasMaxLength(20)
-                        .HasColumnType("int");
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime>("ÚpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Key")
+                        .IsUnique();
+
+                    b.ToTable("GeneralParameters", "PAR");
+                });
+
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Parameters.LoanType", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("DefaultDailyRate")
+                        .HasColumnType("decimal(10,4)");
+
+                    b.Property<string>("DefaultDays")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -372,10 +372,59 @@ namespace InversionesZJ.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Responsibles", "CLI");
+                    b.ToTable("LoanTypes", "PAR");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Role", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Security.PasswordResetToken", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsUsed")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("ÚpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Token");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PasswordResetTokens", "SEC");
+                });
+
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Security.Role", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -446,7 +495,7 @@ namespace InversionesZJ.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.User", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Security.User", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -522,7 +571,7 @@ namespace InversionesZJ.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.UserRole", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Security.UserRole", b =>
                 {
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
@@ -553,9 +602,9 @@ namespace InversionesZJ.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Delinquency", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Operations.Delinquency", b =>
                 {
-                    b.HasOne("InversionesZJ.Domain.Entities.Loan", "Loan")
+                    b.HasOne("InversionesZJ.Domain.Entities.Operations.Loan", "Loan")
                         .WithMany("Delinquencies")
                         .HasForeignKey("LoanId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -564,21 +613,21 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.Navigation("Loan");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Loan", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Operations.Loan", b =>
                 {
-                    b.HasOne("InversionesZJ.Domain.Entities.Client", "Client")
+                    b.HasOne("InversionesZJ.Domain.Entities.Clients.Client", "Client")
                         .WithMany("Loans")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("InversionesZJ.Domain.Entities.Responsible", "Responsible")
+                    b.HasOne("InversionesZJ.Domain.Entities.Clients.Responsible", "Responsible")
                         .WithMany("loans")
                         .HasForeignKey("ResponsibleId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("InversionesZJ.Domain.Entities.LoanType", "LoanType")
+                    b.HasOne("InversionesZJ.Domain.Entities.Parameters.LoanType", "LoanType")
                         .WithMany("loans")
                         .HasForeignKey("loanTypeId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -591,9 +640,9 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.Navigation("Responsible");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Payment", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Operations.Payment", b =>
                 {
-                    b.HasOne("InversionesZJ.Domain.Entities.Loan", "Loan")
+                    b.HasOne("InversionesZJ.Domain.Entities.Operations.Loan", "Loan")
                         .WithMany("Payments")
                         .HasForeignKey("LoanId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -602,15 +651,26 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.Navigation("Loan");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.UserRole", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Security.PasswordResetToken", b =>
                 {
-                    b.HasOne("InversionesZJ.Domain.Entities.Role", "Role")
+                    b.HasOne("InversionesZJ.Domain.Entities.Security.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Security.UserRole", b =>
+                {
+                    b.HasOne("InversionesZJ.Domain.Entities.Security.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("InversionesZJ.Domain.Entities.User", "User")
+                    b.HasOne("InversionesZJ.Domain.Entities.Security.User", "User")
                         .WithMany("userRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -621,34 +681,34 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Client", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Clients.Client", b =>
                 {
                     b.Navigation("Loans");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Loan", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Clients.Responsible", b =>
+                {
+                    b.Navigation("loans");
+                });
+
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Operations.Loan", b =>
                 {
                     b.Navigation("Delinquencies");
 
                     b.Navigation("Payments");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.LoanType", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Parameters.LoanType", b =>
                 {
                     b.Navigation("loans");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Responsible", b =>
-                {
-                    b.Navigation("loans");
-                });
-
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.Role", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Security.Role", b =>
                 {
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("InversionesZJ.Domain.Entities.User", b =>
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Security.User", b =>
                 {
                     b.Navigation("userRoles");
                 });

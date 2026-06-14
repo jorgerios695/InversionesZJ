@@ -1,5 +1,4 @@
 ﻿using BC = BCrypt.Net.BCrypt;
-using InversionesZJ.Application.Interfaces;
 using MediatR;
 using InversionesZJ.Application.DTO.Auth;
 using InversionesZJ.Domain.Enums.Login;
@@ -11,12 +10,10 @@ namespace InversionesZJ.Application.Features.Auth.Commands.Login;
 public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
 {
     private readonly IUserRepository _userRepository;
-    private readonly IJwtService _jwtService;
 
-    public LoginCommandHandler(IUserRepository userRepository, IJwtService jwtService)
+    public LoginCommandHandler(IUserRepository userRepository)
     {
         _userRepository = userRepository;
-        _jwtService = jwtService;
     }
 
     public async Task<LoginResponse> Handle(LoginCommand request, CancellationToken cancellationToken)
@@ -54,13 +51,19 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponse>
         user.LockedUntil = null;
         await _userRepository.UpdateAsync(user, cancellationToken);
 
-        var roles = user.userRoles.Select(x => x.Role.NameRole).ToList();
-        var token = _jwtService.GenerateToken(user, roles);
+        var loggedUser = new LoggedUserDto
+        {
+            Id = user.Id,
+            Username = user.Username,
+            FullName = user.FullName,
+            Email = user.Email,
+            Roles = user.userRoles.Select(x => x.Role.NameRole).ToList()
+        };
 
         return new LoginResponse
         {
             Success = true,
-            ResponseObject = token,
+            ResponseObject = loggedUser,
             ResponseCode = "200",
             ResponseMessage = "Login successful"
         };

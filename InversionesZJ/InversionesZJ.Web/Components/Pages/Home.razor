@@ -1,7 +1,27 @@
-﻿@page "/"
+@page "/"
+@attribute [Authorize]
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@inject NavigationManager Navigation
 
-<PageTitle>Home</PageTitle>
+<h1>Bienvenido a InversionesZJ</h1>
 
-<h1>Hello, world!</h1>
+<AuthorizeView>
+    <p>Hola, <strong>@context.User.Identity?.Name</strong> 👋</p>
+</AuthorizeView>
 
-Welcome to your new app.
+<EditForm Model="this" OnValidSubmit="Logout" FormName="logout" method="post">
+    <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+</EditForm>
+
+@code {
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    private async Task Logout()
+    {
+        // Borra la cookie de autenticación (deshace el SignInAsync del login).
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        Navigation.NavigateTo("/login");
+    }
+}
