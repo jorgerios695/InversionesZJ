@@ -3,6 +3,7 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\w
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\CSS\variables.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
 C:\Users\admin\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.9\_framework\blazor.server.js
@@ -15,6 +16,7 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\w
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\CSS\toast.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\app.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
@@ -47,6 +49,8 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\C
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+wwwroot\CSS\toast.css
+wwwroot\CSS\variables.css
 wwwroot\app.css
 wwwroot\favicon.png
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css

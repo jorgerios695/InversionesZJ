@@ -1,0 +1,20 @@
+﻿:root {
+    /* Colores de marca */
+    --color-primary: #1db954;
+    --color-primary-dark: #14823b;
+    /* Fondos */
+    --color-bg-dark: #0a0a0a;
+    --color-bg-input: #1e1e1e;
+    --color-card: #141414;
+    --color-border: #2a2a2a;
+    --color-border-input: #333;
+    /* Texto */
+    --color-text: #ccc;
+    --color-text-muted: #888;
+    --color-text-placeholder: #555;
+    /* Estados */
+    --color-success: #1db954;
+    --color-error: #e0245e;
+    --color-warning: #f5a623;
+    --color-info: #1d9bf0;
+}

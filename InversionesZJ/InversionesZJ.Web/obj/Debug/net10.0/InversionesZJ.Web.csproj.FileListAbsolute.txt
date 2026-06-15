@@ -223,7 +223,9 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\o
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\MailKit.dll
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\bin\Debug\net10.0\MimeKit.dll
-C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\gffh3e0hor-{0}-e43g56xu8s-e43g56xu8s.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\rj2u3p2iab-{0}-0jv78u4zoe-0jv78u4zoe.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\ur6676k7w1-{0}-0jv78u4zoe-0jv78u4zoe.gz
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\gffh3e0hor-{0}-06pz960nj2-06pz960nj2.gz
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\g3t90ta0hv-{0}-dn5am1u4om-dn5am1u4om.gz
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\compressed\50miczf7dk-{0}-hsminqtd5k-hsminqtd5k.gz
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

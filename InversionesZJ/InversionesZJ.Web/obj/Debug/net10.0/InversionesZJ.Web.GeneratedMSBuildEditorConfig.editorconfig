@@ -67,6 +67,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Jorge_Excellentiam/Jorge Rios/InversionesZJ/InversionesZJ/InversionesZJ.Web/Components/Shared/NotificationContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcTm90aWZpY2F0aW9uQ29udGFpbmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Jorge_Excellentiam/Jorge Rios/InversionesZJ/InversionesZJ/InversionesZJ.Web/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

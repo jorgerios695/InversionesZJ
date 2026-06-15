@@ -9,6 +9,7 @@ using InversionesZJ.Infrastructure.Repositories.Security;
 using InversionesZJ.Infrastructure.Services;
 using InversionesZJ.Web.Components;
 using InversionesZJ.Web.Services;
+using InversionesZJ.Web.Services.Notifications;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -45,17 +46,19 @@ builder.Services.Configure<EmailSettings>(
 builder.Services.Configure<AppSettings>(
     builder.Configuration.GetSection("AppSettings"));
 
+builder.Services.AddScoped<NotificationService>();
+
 //
 // Autenticación por COOKIES (estándar para Blazor Server)
 //
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/login";              // A dónde mandar si no hay sesión
-        options.AccessDeniedPath = "/login";       // A dónde mandar si no tiene permiso
-        options.ExpireTimeSpan = TimeSpan.FromHours(8); // Duración de la sesión
-        options.SlidingExpiration = true;          // Se renueva si el usuario sigue activo
-        options.Cookie.HttpOnly = true;            // No accesible por JavaScript (anti-XSS)
+        options.LoginPath = "/login";              
+        options.AccessDeniedPath = "/login";      
+        options.ExpireTimeSpan = TimeSpan.FromHours(8); 
+        options.SlidingExpiration = true;         
+        options.Cookie.HttpOnly = true;           
         options.Cookie.Name = "InversionesZJ.Auth";
     });
 
