@@ -1,6 +1,7 @@
 Components\Layout\ReconnectModal.razor.js
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\CSS\Modal\modal.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\CSS\variables.css
@@ -20,6 +21,7 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\w
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\app.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\CSS\Buttons\button.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.js
 C:\Users\admin\.nuget\packages\microsoft.aspnetcore.app.internal.assets\10.0.9\_framework\blazor.web.js
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
@@ -28,12 +30,14 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\w
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\CSS\Tables\tables.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\CSS\loading.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -44,11 +48,17 @@ C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\w
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\CSS\Forms\formsUser.css
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\Components\Layout\ReconnectModal.razor.js
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
 C:\Jorge_Excellentiam\Jorge Rios\InversionesZJ\InversionesZJ\InversionesZJ.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+wwwroot\CSS\Buttons\button.css
+wwwroot\CSS\Forms\formsUser.css
+wwwroot\CSS\Modal\modal.css
+wwwroot\CSS\Tables\tables.css
+wwwroot\CSS\loading.css
 wwwroot\CSS\toast.css
 wwwroot\CSS\variables.css
 wwwroot\app.css

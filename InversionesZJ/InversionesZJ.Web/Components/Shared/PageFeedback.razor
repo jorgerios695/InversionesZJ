@@ -1,0 +1,10 @@
+@* Agrupa el overlay de carga y los toasts de notificación.
+
+   IMPORTANTE: debe colocarse DENTRO de una página interactiva (no en el layout).
+   Al ser hijo de la página, comparte su misma isla interactiva y, por tanto, el
+   mismo scope de DI. Así recibe la MISMA instancia de LoadingService /
+   NotificationService que usa la página cuando llama Show()/ShowSuccess(),
+   y los eventos OnChange/OnNotify sí llegan. *@
+
+<LoadingOverlay />
+<NotificationContainer />

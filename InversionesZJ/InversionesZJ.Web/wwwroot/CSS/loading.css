@@ -1,0 +1,41 @@
+﻿.loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    backdrop-filter: blur(2px);
+}
+
+.loading-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: loading-pulse 1.2s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(29, 185, 84, 0.4);
+}
+
+    .loading-logo span {
+        color: var(--color-primary);
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+@keyframes loading-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.12);
+        opacity: 0.6;
+    }
+}

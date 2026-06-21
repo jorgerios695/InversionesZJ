@@ -1,11 +1,9 @@
-@rendermode InteractiveServer
-
-<div class="toast-container">
+<div class="izj-toast-container">
     @foreach (var notification in notifications)
     {
-        <div class="toast toast-@notification.Type.ToString().ToLower()" @key="notification.Id">
-            <span class="toast-icon">@GetIcon(notification.Type)</span>
-            <span class="toast-message">@notification.Message</span>
+        <div class="izj-toast izj-toast-@notification.Type.ToString().ToLower()" @key="notification.Id">
+            <span class="izj-toast-icon">@GetIcon(notification.Type)</span>
+            <span class="izj-toast-message">@notification.Message</span>
         </div>
     }
 </div>

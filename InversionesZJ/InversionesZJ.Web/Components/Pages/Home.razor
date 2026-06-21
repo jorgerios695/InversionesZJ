@@ -7,6 +7,7 @@
     <p>Hola, <strong>@context.User.Identity?.Name</strong> 👋</p>
 </AuthorizeView>
 
-<EditForm Model="this" OnValidSubmit="Logout" FormName="logout" method="post">
+<form action="/logout" method="post">
+    <AntiforgeryToken />
     <button type="submit" class="btn btn-danger">Cerrar sesión</button>
-</EditForm>
+</form>

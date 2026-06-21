@@ -1,0 +1,49 @@
+﻿.form-card {
+    background: var(--content-card);
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 560px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.form-row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .form-row label {
+        color: var(--content-text);
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+.input {
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid var(--content-border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--content-text);
+    transition: border-color 0.15s;
+}
+
+    .input:focus {
+        outline: none;
+        border-color: var(--color-primary);
+    }
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+}
+.input-readonly {
+    background: #f4f5f7;
+    color: var(--content-text-muted);
+    cursor: not-allowed;
+}

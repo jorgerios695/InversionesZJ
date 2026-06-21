@@ -1,0 +1,26 @@
+﻿@using InversionesZJ.Web.Services.Loading
+@inject LoadingService LoadingService
+@implements IDisposable
+
+@if (LoadingService.IsLoading)
+{
+    <div class="loading-overlay">
+        <div class="loading-logo">
+            <span>IZJ</span>
+        </div>
+    </div>
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        LoadingService.OnChange += Update;
+    }
+
+    private void Update() => InvokeAsync(StateHasChanged);
+
+    public void Dispose()
+    {
+        LoadingService.OnChange -= Update;
+    }
+}

@@ -1,18 +1,23 @@
 ﻿:root {
-    /* Colores de marca */
+    /* ===== Colores de marca ===== */
     --color-primary: #1db954;
     --color-primary-dark: #14823b;
-    /* Fondos */
-    --color-bg-dark: #0a0a0a;
-    --color-bg-input: #1e1e1e;
-    --color-card: #141414;
-    --color-border: #2a2a2a;
-    --color-border-input: #333;
-    /* Texto */
-    --color-text: #ccc;
-    --color-text-muted: #888;
-    --color-text-placeholder: #555;
-    /* Estados */
+    --color-primary-light: #2ee066;
+    /* ===== Zona OSCURA (sidebar) ===== */
+    --color-bg-dark: #0d0d0f;
+    --color-card: #1a1a1f;
+    --color-bg-input: #242429;
+    --color-border: #34343c;
+    --sidebar-text: #e8e8ec;
+    --sidebar-text-muted: #9a9aa5;
+    /* ===== Zona CLARA (contenido) ===== */
+    --content-bg: #f4f5f7; /* fondo del área de contenido */
+    --content-card: #ffffff; /* tarjetas y tablas */
+    --content-border: #e3e5e8; /* bordes suaves */
+    --content-text: #1a1a1f; /* texto principal oscuro */
+    --content-text-muted: #6b7280; /* texto secundario */
+    --content-hover: #f0fdf4; /* hover verde muy claro */
+    /* ===== Estados ===== */
     --color-success: #1db954;
     --color-error: #e0245e;
     --color-warning: #f5a623;

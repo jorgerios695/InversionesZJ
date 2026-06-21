@@ -1,0 +1,162 @@
+﻿@page "/users"
+@attribute [Authorize]
+
+@using InversionesZJ.Application.DTO.Users
+@using InversionesZJ.Application.Features.Users.Queries.GetUsers
+@using InversionesZJ.Web.Services.Users
+@using InversionesZJ.Web.Services.Loading
+@using InversionesZJ.Web.Services.Notifications
+@using MediatR
+
+@inject NavigationManager Navigation
+@inject IMediator Mediator
+@inject UserService UserService
+@inject LoadingService LoadingService
+@inject NotificationService NotificationService
+@rendermode InteractiveServer
+
+<PageFeedback />
+
+<div class="page-container">
+    <div class="page-header">
+        <h2>Usuarios</h2>
+        <button class="btn-primary" @onclick='() => Navigation.NavigateTo("/users/create")'>
+            + Nuevo usuario
+        </button>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Acciones</th>
+                <th>Nombre</th>
+                <th>Usuario</th>
+                <th>Correo</th>
+                <th>Roles</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (users.Count == 0)
+            {
+                <tr>
+                    <td colspan="6" class="empty">No hay usuarios registrados</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var user in users)
+                {
+                    <tr>
+                        <td>
+                            <button class="btn-icon" title="Editar"
+                                    @onclick='() => Navigation.NavigateTo($"/users/edit/{user.Id}")'>
+                                <i class="ti ti-pencil"></i>
+                            </button>
+
+                            <button class="btn-icon @(user.IsActive ? "btn-icon-danger" : "btn-icon-success")"
+                                    title="@(user.IsActive ? "Desactivar" : "Activar")"
+                                    @onclick="() => ConfirmToggle(user)">
+                                <i class="ti @(user.IsActive ? "ti-user-off" : "ti-user-check")"></i>
+                            </button>
+                        </td>
+                        <td>@user.FullName</td>
+                        <td>@user.Username</td>
+                        <td>@user.Email</td>
+                        <td>@string.Join(", ", user.Roles)</td>
+                        <td>
+                            <span class="badge @(user.IsActive ? "badge-active" : "badge-inactive")">
+                                @(user.IsActive ? "Activo" : "Inactivo")
+                            </span>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (showConfirm && userToToggle is not null)
+{
+    <div class="modal-overlay" @onclick="CancelToggle">
+        <div class="modal-box" @onclick:stopPropagation="true">
+            <h3>Confirmar acción</h3>
+            <p>
+                ¿Seguro que deseas @(userToToggle.IsActive ? "desactivar" : "activar")
+                al usuario <strong>@userToToggle.Username</strong>?
+            </p>
+            <div class="modal-actions">
+                <button class="btn-secondary" @onclick="CancelToggle">Cancelar</button>
+                <button class="btn-primary" @onclick="ExecuteToggle">Confirmar</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<UserListDto> users = new();
+
+    private UserListDto? userToToggle;
+    private bool showConfirm = false;
+
+    [SupplyParameterFromQuery(Name = "created")]
+    public string? Created { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadUsers();
+    }
+
+    private async Task LoadUsers()
+    {
+        await LoadingService.RunAsync(async () =>
+        {
+            users = await Mediator.Send(new GetUsersQuery());
+        });
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender && Created == "1")
+        {
+            NotificationService.ShowSuccess("Usuario creado correctamente");
+        }
+    }
+
+    private void ConfirmToggle(UserListDto user)
+    {
+        userToToggle = user;
+        showConfirm = true;
+    }
+
+    private void CancelToggle()
+    {
+        userToToggle = null;
+        showConfirm = false;
+    }
+
+    private async Task ExecuteToggle()
+    {
+        if (userToToggle is null) return;
+
+        showConfirm = false;
+        var id = userToToggle.Id;
+
+        await LoadingService.RunAsync(async () =>
+        {
+            var response = await UserService.ToggleUserStatusAsync(id);
+
+            if (response.Success)
+            {
+                NotificationService.ShowSuccess("Estado actualizado correctamente");
+                users = await Mediator.Send(new GetUsersQuery());
+            }
+            else
+            {
+                NotificationService.ShowError(response.ResponseMessage);
+            }
+        });
+
+        userToToggle = null;
+    }
+}

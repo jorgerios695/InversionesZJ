@@ -1,0 +1,119 @@
+﻿@page "/users/edit/{Id:long}"
+@attribute [Authorize]
+
+@using InversionesZJ.Application.DTO.Users
+@using InversionesZJ.Web.Services.Users
+@using InversionesZJ.Web.Services.Notifications
+@using InversionesZJ.Web.Services.Loading
+@inject UserService UserService
+@inject NotificationService NotificationService
+@inject LoadingService LoadingService
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+<div class="page-container">
+    <div class="page-header">
+        <h2>Editar Usuario</h2>
+    </div>
+
+    @if (notFound)
+    {
+        <div class="form-card">
+            <p>El usuario no existe.</p>
+            <button class="btn-secondary" @onclick="GoBack">Volver</button>
+        </div>
+    }
+    else if (model is not null)
+    {
+        <div class="form-card">
+            <EditForm Model="model" OnValidSubmit="HandleUpdate">
+                <div class="form-row">
+                    <label>Usuario</label>
+                    <input class="input input-readonly" value="@username" disabled />
+                </div>
+
+                <div class="form-row">
+                    <label>Nombre completo</label>
+                    <InputText @bind-Value="model.FullName" class="input" />
+                </div>
+
+                <div class="form-row">
+                    <label>Correo</label>
+                    <InputText @bind-Value="model.Email" class="input" />
+                </div>
+
+                <div class="form-row">
+                    <label>Rol</label>
+                    <InputSelect @bind-Value="model.RoleId" class="input">
+                        <option value="0">-- Selecciona un rol --</option>
+                        @foreach (var role in roles)
+                        {
+                            <option value="@role.Id">@role.Name</option>
+                        }
+                    </InputSelect>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" @onclick="GoBack">Cancelar</button>
+                    <button type="submit" class="btn-primary">Guardar cambios</button>
+                </div>
+            </EditForm>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public long Id { get; set; }
+
+    private UpdateUserDto? model;
+    private List<RoleListDto> roles = new();
+    private string username = string.Empty;
+    private bool notFound = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        roles = await UserService.GetRolesAsync();
+
+        var user = await UserService.GetUserByIdAsync(Id);
+        if (user is null)
+        {
+            notFound = true;
+            return;
+        }
+
+        username = user.Username;
+        model = new UpdateUserDto
+        {
+            Id = user.Id,
+            FullName = user.FullName,
+            Email = user.Email,
+            RoleId = user.RoleId
+        };
+    }
+
+    private async Task HandleUpdate()
+    {
+        LoadingService.Show();
+        try
+        {
+            var response = await UserService.UpdateUserAsync(model!);
+
+            if (response.Success)
+            {
+                NotificationService.ShowSuccess("Usuario actualizado correctamente");
+                Navigation.NavigateTo("/users");
+            }
+            else
+            {
+                NotificationService.ShowError(response.ResponseMessage);
+            }
+        }
+        finally
+        {
+            LoadingService.Hide();
+        }
+    }
+
+    private void GoBack() => Navigation.NavigateTo("/users");
+}

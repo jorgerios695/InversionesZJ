@@ -1,0 +1,102 @@
+﻿@page "/users/create"
+@attribute [Authorize]
+
+
+@using InversionesZJ.Application.DTO.Users
+@using InversionesZJ.Domain.Common
+@using InversionesZJ.Web.Services.Users
+@using InversionesZJ.Web.Services.Notifications
+@using InversionesZJ.Web.Services.Loading
+
+@inject UserService UserService
+@inject NotificationService NotificationService
+@inject LoadingService LoadingService
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+<PageFeedback />
+
+<div class="page-container">
+    <div class="page-header">
+        <h2>Crear Usuario</h2>
+    </div>
+
+    <div class="form-card">
+        <EditForm Model="model" OnValidSubmit="HandleCreate">
+            <div class="form-row">
+                <label>Nombre completo</label>
+                <InputText @bind-Value="model.FullName" class="input" placeholder="Ej: Juan Pérez" />
+            </div>
+
+            <div class="form-row">
+                <label>Usuario</label>
+                <InputText @bind-Value="model.Username" class="input" placeholder="Ej: jperez" />
+            </div>
+
+            <div class="form-row">
+                <label>Correo</label>
+                <InputText @bind-Value="model.Email" class="input" placeholder="correo@ejemplo.com" />
+            </div>
+
+            <div class="form-row">
+                <label>Contraseña</label>
+                <InputText type="password" @bind-Value="model.Password" class="input" placeholder="Mínimo 6 caracteres" />
+            </div>
+
+            <div class="form-row">
+                <label>Rol</label>
+                <InputSelect @bind-Value="model.RoleId" class="input">
+                    <option value="0">-- Selecciona un rol --</option>
+                    @foreach (var role in roles)
+                    {
+                        <option value="@role.Id">@role.Name</option>
+                    }
+                </InputSelect>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" @onclick="GoBack">Cancelar</button>
+                <button type="submit" class="btn-primary">Crear usuario</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private CreateUserDto model = new();
+    private List<RoleListDto> roles = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Overlay visible mientras se cargan los roles.
+        await LoadingService.RunAsync(async () =>
+        {
+            roles = await UserService.GetRolesAsync();
+        });
+    }
+
+    private async Task HandleCreate()
+    {
+        GenericResponse? response = null;
+
+        // Overlay visible mientras se crea el usuario.
+        await LoadingService.RunAsync(async () =>
+        {
+            response = await UserService.CreateUserAsync(model);
+        });
+
+        if (response!.Success)
+        {
+            // El toast de éxito se muestra YA en la página de Usuarios (vía query),
+            // porque al redirigir esta página se destruye y perdería el toast.
+            Navigation.NavigateTo("/users?created=1");
+        }
+        else
+        {
+            // El error sí se muestra aquí porque nos quedamos en la misma página.
+            NotificationService.ShowError(response.ResponseMessage);
+        }
+    }
+
+    private void GoBack() => Navigation.NavigateTo("/users");
+}
