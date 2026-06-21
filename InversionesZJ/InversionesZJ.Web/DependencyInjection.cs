@@ -1,6 +1,7 @@
 ﻿using InversionesZJ.Web.Services;
 using InversionesZJ.Web.Services.Loading;
 using InversionesZJ.Web.Services.Notifications;
+using InversionesZJ.Web.Services.Roles;
 using InversionesZJ.Web.Services.Users;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
@@ -35,6 +36,7 @@ public static class DependencyInjection
         services.AddScoped<NotificationService>();
         services.AddScoped<LoadingService>();
         services.AddScoped<UserService>();
+        services.AddScoped<RoleService>();
 
         return services;
     }

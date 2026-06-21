@@ -1,10 +1,10 @@
 ﻿using InversionesZJ.Domain.Entities.Security;
-using InversionesZJ.Domain.Interfaces.Security;
+using InversionesZJ.Domain.Interfaces.Roles;
 using InversionesZJ.Infrastructure.Data.Configurations;
 using InversionesZJ.Infrastructure.Repositories.Common;
 using Microsoft.EntityFrameworkCore;
 
-namespace InversionesZJ.Infrastructure.Repositories.Security;
+namespace InversionesZJ.Infrastructure.Repositories.Users;
 
 public class UserRepository : GenericRepository<User>, IUserRepository
 {

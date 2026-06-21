@@ -1,7 +1,7 @@
 ﻿using InversionesZJ.Domain.Entities.Security;
 using InversionesZJ.Domain.Interfaces.common;
 
-namespace InversionesZJ.Domain.Interfaces.Security;
+namespace InversionesZJ.Domain.Interfaces.Roles;
 
 public interface IUserRepository : IGenericRepository<User>
 {

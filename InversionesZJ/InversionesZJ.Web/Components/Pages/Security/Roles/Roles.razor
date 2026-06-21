@@ -1,0 +1,149 @@
+﻿@page "/roles"
+@attribute [Authorize]
+@using InversionesZJ.Application.DTO.Roles
+@using InversionesZJ.Web.Services.Roles
+@using InversionesZJ.Web.Services.Loading
+@using InversionesZJ.Web.Services.Notifications
+@inject NavigationManager Navigation
+@inject RoleService RoleService
+@inject LoadingService LoadingService
+@inject NotificationService NotificationService
+@rendermode InteractiveServer
+
+<PageFeedback />
+
+<div class="page-container">
+    <div class="page-header">
+        <h2>Roles</h2>
+        <button class="btn-primary" @onclick='() => Navigation.NavigateTo("/roles/create")'>
+            + Nuevo rol
+        </button>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Acciones</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (roles.Count == 0)
+            {
+                <tr><td colspan="4" class="empty">No hay roles registrados</td></tr>
+            }
+            else
+            {
+                @foreach (var role in roles)
+                {
+                    <tr>
+                        <td>
+                            <button class="btn-icon" title="Editar"
+                                    @onclick='() => Navigation.NavigateTo($"/roles/edit/{role.Id}")'>
+                                <i class="ti ti-pencil"></i>
+                            </button>
+                            <button class="btn-icon @(role.IsActive ? "btn-icon-danger" : "btn-icon-success")"
+                                    title="@(role.IsActive ? "Desactivar" : "Activar")"
+                                    @onclick="() => ConfirmToggle(role)">
+                                <i class="ti @(role.IsActive ? "ti-circle-off" : "ti-circle-check")"></i>
+                            </button>
+                        </td>
+                        <td>@role.Name</td>
+                        <td>@role.Description</td>
+                        <td>
+                            <span class="badge @(role.IsActive ? "badge-active" : "badge-inactive")">
+                                @(role.IsActive ? "Activo" : "Inactivo")
+                            </span>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (showConfirm && roleToToggle is not null)
+{
+    <div class="modal-overlay" @onclick="CancelToggle">
+        <div class="modal-box" @onclick:stopPropagation="true">
+            <h3>Confirmar acción</h3>
+            <p>
+                ¿Seguro que deseas @(roleToToggle.IsActive ? "desactivar" : "activar")
+                el rol <strong>@roleToToggle.Name</strong>?
+            </p>
+            <div class="modal-actions">
+                <button class="btn-secondary" @onclick="CancelToggle">Cancelar</button>
+                <button class="btn-primary" @onclick="ExecuteToggle">Confirmar</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<RoleDetailDto> roles = new();
+    private RoleDetailDto? roleToToggle;
+    private bool showConfirm = false;
+
+    [SupplyParameterFromQuery(Name = "created")]
+    public string? Created { get; set; }
+
+    [SupplyParameterFromQuery(Name = "updated")]
+    public string? Updated { get; set; }
+
+    protected override async Task OnInitializedAsync() => await LoadRoles();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        if (Created == "1")
+            NotificationService.ShowSuccess("Rol creado correctamente");
+        else if (Updated == "1")
+            NotificationService.ShowSuccess("Rol actualizado correctamente");
+    }
+
+    private async Task LoadRoles()
+    {
+        await LoadingService.RunAsync(async () =>
+        {
+            roles = await RoleService.GetAllRolesAsync();
+        });
+    }
+
+    private void ConfirmToggle(RoleDetailDto role)
+    {
+        roleToToggle = role;
+        showConfirm = true;
+    }
+
+    private void CancelToggle()
+    {
+        roleToToggle = null;
+        showConfirm = false;
+    }
+
+    private async Task ExecuteToggle()
+    {
+        if (roleToToggle is null) return;
+        showConfirm = false;
+        var id = roleToToggle.Id;
+
+        await LoadingService.RunAsync(async () =>
+        {
+            var response = await RoleService.ToggleRoleStatusAsync(id);
+            if (response.Success)
+            {
+                NotificationService.ShowSuccess("Estado actualizado correctamente");
+                roles = await RoleService.GetAllRolesAsync();
+            }
+            else
+            {
+                NotificationService.ShowError(response.ResponseMessage);
+            }
+        });
+
+        roleToToggle = null;
+    }
+}

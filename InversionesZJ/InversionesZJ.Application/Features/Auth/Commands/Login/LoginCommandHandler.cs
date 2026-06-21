@@ -2,7 +2,7 @@
 using MediatR;
 using InversionesZJ.Application.DTO.Auth;
 using InversionesZJ.Domain.Enums.Login;
-using InversionesZJ.Domain.Interfaces.Security;
+using InversionesZJ.Domain.Interfaces.Roles;
 using InversionesZJ.Domain.Entities.Security;
 
 namespace InversionesZJ.Application.Features.Auth.Commands.Login;

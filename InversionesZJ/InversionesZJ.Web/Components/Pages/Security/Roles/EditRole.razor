@@ -1,0 +1,88 @@
+﻿@page "/roles/edit/{Id:long}"
+@attribute [Authorize]
+@using InversionesZJ.Application.DTO.Roles
+@using InversionesZJ.Web.Services.Roles
+@using InversionesZJ.Web.Services.Loading
+@using InversionesZJ.Web.Services.Notifications
+@inject RoleService RoleService
+@inject LoadingService LoadingService
+@inject NotificationService NotificationService
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+<PageFeedback />
+
+<div class="page-container">
+    <div class="page-header">
+        <h2>Editar Rol</h2>
+    </div>
+
+    @if (notFound)
+    {
+        <div class="form-card">
+            <p>El rol no existe.</p>
+            <button class="btn-secondary" @onclick="GoBack">Volver</button>
+        </div>
+    }
+    else if (model is not null)
+    {
+        <div class="form-card">
+            <EditForm Model="model" OnValidSubmit="HandleUpdate">
+                <div class="form-row">
+                    <label>Nombre</label>
+                    <InputText @bind-Value="model.Name" class="input" />
+                </div>
+                <div class="form-row">
+                    <label>Descripción</label>
+                    <InputText @bind-Value="model.Description" class="input" />
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" @onclick="GoBack">Cancelar</button>
+                    <button type="submit" class="btn-primary">Guardar cambios</button>
+                </div>
+            </EditForm>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public long Id { get; set; }
+
+    private UpdateRoleDto? model;
+    private bool notFound = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var role = await RoleService.GetRoleByIdAsync(Id);
+        if (role is null)
+        {
+            notFound = true;
+            return;
+        }
+
+        model = new UpdateRoleDto
+        {
+            Id = role.Id,
+            Name = role.Name,
+            Description = role.Description
+        };
+    }
+
+    private async Task HandleUpdate()
+    {
+        await LoadingService.RunAsync(async () =>
+        {
+            var response = await RoleService.UpdateRoleAsync(model!);
+            if (response.Success)
+            {
+                Navigation.NavigateTo("/roles?updated=1");
+            }
+            else
+            {
+                NotificationService.ShowError(response.ResponseMessage);
+            }
+        });
+    }
+
+    private void GoBack() => Navigation.NavigateTo("/roles");
+}

@@ -1,16 +1,15 @@
 ﻿using InversionesZJ.Application.Common;
 using InversionesZJ.Application.Interfaces;
 using InversionesZJ.Domain.Interfaces.common;
-using InversionesZJ.Domain.Interfaces.Security;
-using InversionesZJ.Infrastructure.Data;
+using InversionesZJ.Domain.Interfaces.Roles;
 using InversionesZJ.Infrastructure.Data.Configurations;
 using InversionesZJ.Infrastructure.Repositories.Common;
-using InversionesZJ.Infrastructure.Repositories.Security;
+using InversionesZJ.Infrastructure.Repositories.Roles;
+using InversionesZJ.Infrastructure.Repositories.Users;
 using InversionesZJ.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 
 namespace InversionesZJ.Infrastructure;
 

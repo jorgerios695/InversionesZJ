@@ -1,6 +1,6 @@
 ﻿using BC = BCrypt.Net.BCrypt;
 using InversionesZJ.Domain.Common;
-using InversionesZJ.Domain.Interfaces.Security;
+using InversionesZJ.Domain.Interfaces.Roles;
 using MediatR;
 using InversionesZJ.Domain.Enums.Login;
 

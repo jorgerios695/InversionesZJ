@@ -1,0 +1,59 @@
+﻿@page "/roles/create"
+@attribute [Authorize]
+@using InversionesZJ.Application.DTO.Roles
+@using InversionesZJ.Web.Services.Roles
+@using InversionesZJ.Web.Services.Loading
+@using InversionesZJ.Web.Services.Notifications
+@inject RoleService RoleService
+@inject LoadingService LoadingService
+@inject NotificationService NotificationService
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+<PageFeedback />
+
+<div class="page-container">
+
+    <div class="page-header">
+        <h2>Crear Rol</h2>
+    </div>
+
+    <div class="form-card">
+        <EditForm Model="model" OnValidSubmit="HandleCreate">
+            <div class="form-row">
+                <label>Nombre</label>
+                <InputText @bind-Value="model.Name" class="input" placeholder="Ej: Cobrador" />
+            </div>
+            <div class="form-row">
+                <label>Descripción</label>
+                <InputText @bind-Value="model.Description" class="input" placeholder="Breve descripción del rol" />
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" @onclick="GoBack">Cancelar</button>
+                <button type="submit" class="btn-primary">Crear rol</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private CreateRoleDto model = new();
+
+    private async Task HandleCreate()
+    {
+        await LoadingService.RunAsync(async () =>
+        {
+            var response = await RoleService.CreateRoleAsync(model);
+            if (response.Success)
+            {
+                Navigation.NavigateTo("/roles?created=1");
+            }
+            else
+            {
+                NotificationService.ShowError(response.ResponseMessage);
+            }
+        });
+    }
+
+    private void GoBack() => Navigation.NavigateTo("/roles");
+}

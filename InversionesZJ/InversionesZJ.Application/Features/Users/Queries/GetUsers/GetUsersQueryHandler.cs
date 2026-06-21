@@ -1,5 +1,5 @@
 ﻿using InversionesZJ.Application.DTO.Users;
-using InversionesZJ.Domain.Interfaces.Security;
+using InversionesZJ.Domain.Interfaces.Roles;
 using MediatR;
 using System;
 using System.Collections.Generic;

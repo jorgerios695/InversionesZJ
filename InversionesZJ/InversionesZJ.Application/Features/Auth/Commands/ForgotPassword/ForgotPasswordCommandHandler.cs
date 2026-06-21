@@ -2,7 +2,7 @@
 using InversionesZJ.Application.Interfaces;
 using InversionesZJ.Domain.Common;
 using InversionesZJ.Domain.Entities.Security;
-using InversionesZJ.Domain.Interfaces.Security;
+using InversionesZJ.Domain.Interfaces.Roles;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
