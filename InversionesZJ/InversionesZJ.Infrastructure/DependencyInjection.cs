@@ -1,9 +1,11 @@
 ﻿using InversionesZJ.Application.Common;
 using InversionesZJ.Application.Interfaces;
 using InversionesZJ.Domain.Interfaces.common;
+using InversionesZJ.Domain.Interfaces.Parameters;
 using InversionesZJ.Domain.Interfaces.Roles;
 using InversionesZJ.Infrastructure.Data.Configurations;
 using InversionesZJ.Infrastructure.Repositories.Common;
+using InversionesZJ.Infrastructure.Repositories.Parameters;
 using InversionesZJ.Infrastructure.Repositories.Roles;
 using InversionesZJ.Infrastructure.Repositories.Users;
 using InversionesZJ.Infrastructure.Services;
@@ -30,6 +32,8 @@ public static class DependencyInjection
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IRoleRepository, RoleRepository>();
+        services.AddScoped<IGeneralParameterRepository, GeneralParameterRepository>();
+        services.AddScoped<IDetailParameterRepository, DetailParameterRepository>();
 
         // Servicios de infraestructura
         services.AddScoped<IEmailService, EmailService>();

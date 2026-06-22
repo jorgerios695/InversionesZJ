@@ -1,0 +1,412 @@
+﻿@page "/parameters"
+@attribute [Authorize]
+@using InversionesZJ.Application.DTO.Parameters.General
+@using InversionesZJ.Application.DTO.Parameters
+@using InversionesZJ.Web.Services.Parameters
+@using InversionesZJ.Web.Services.Loading
+@using InversionesZJ.Web.Services.Notifications
+@inject ParameterService ParameterService
+@inject LoadingService LoadingService
+@inject NotificationService NotificationService
+@rendermode InteractiveServer
+
+<div class="page-container">
+    <div class="page-header">
+        <h2>Parámetros</h2>
+        <button class="btn-primary" @onclick="OpenCreate">+ Nueva categoría</button>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Acciones</th>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (parameters.Count == 0)
+            {
+                <tr><td colspan="5" class="empty">No hay parámetros registrados</td></tr>
+            }
+            else
+            {
+                @foreach (var p in parameters)
+                {
+                    <tr>
+                        <td>
+                            <button class="btn-icon" title="Editar" @onclick="() => OpenEdit(p)">
+                                <i class="ti ti-pencil"></i>
+                            </button>
+                            <button class="btn-icon" title="Ver detalles" @onclick="() => OpenDetails(p)">
+                                <i class="ti ti-list"></i>
+                            </button>
+                            <button class="btn-icon @(p.IsActive ? "btn-icon-danger" : "btn-icon-success")"
+                                    title="@(p.IsActive ? "Desactivar" : "Activar")"
+                                    @onclick="() => ConfirmToggle(p)">
+                                <i class="ti @(p.IsActive ? "ti-circle-off" : "ti-circle-check")"></i>
+                            </button>
+                        </td>
+                        <td>@p.Code</td>
+                        <td>@p.Name</td>
+                        <td>@p.Description</td>
+                        <td>
+                            <span class="badge @(p.IsActive ? "badge-active" : "badge-inactive")">
+                                @(p.IsActive ? "Activo" : "Inactivo")
+                            </span>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+@* Modal Crear/Editar categoría *@
+@if (showForm)
+{
+    <div class="modal-overlay" @onclick="CloseForm">
+        <div class="modal-box" @onclick:stopPropagation="true">
+            <h3>@(isEditing ? "Editar categoría" : "Nueva categoría")</h3>
+
+            <div class="form-row">
+                <label>Código</label>
+                <input class="input" @bind="form.Code" placeholder="Ej: DOC_TYPE" />
+            </div>
+            <div class="form-row">
+                <label>Nombre</label>
+                <input class="input" @bind="form.Name" placeholder="Ej: Tipos de documento" />
+            </div>
+            <div class="form-row">
+                <label>Descripción</label>
+                <input class="input" @bind="form.Description" />
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-secondary" @onclick="CloseForm">Cancelar</button>
+                <button class="btn-primary" @onclick="SaveForm">Guardar</button>
+            </div>
+        </div>
+    </div>
+}
+
+@* Modal Confirmar toggle *@
+@if (showConfirm && toToggle is not null)
+{
+    <div class="modal-overlay" @onclick="CancelToggle">
+        <div class="modal-box" @onclick:stopPropagation="true">
+            <h3>Confirmar acción</h3>
+            <p>
+                ¿Seguro que deseas @(toToggle.IsActive ? "desactivar" : "activar")
+                <strong>@toToggle.Name</strong>?
+            </p>
+            <div class="modal-actions">
+                <button class="btn-secondary" @onclick="CancelToggle">Cancelar</button>
+                <button class="btn-primary" @onclick="ExecuteToggle">Confirmar</button>
+            </div>
+        </div>
+    </div>
+}
+
+@* Modal de Detalles (valores de la categoría) *@
+@if (showDetails && selectedCategory is not null)
+{
+    <div class="modal-overlay" @onclick="CloseDetails">
+        <div class="modal-box modal-lg" @onclick:stopPropagation="true">
+            <h3>Valores de: @selectedCategory.Name</h3>
+
+            <div class="detail-form">
+                <input class="input" @bind="detailForm.Code" placeholder="Código (ej: CC)" />
+                <input class="input" @bind="detailForm.Value" placeholder="Valor (ej: Cédula)" />
+                <input class="input input-sm" type="number" @bind="detailForm.Order" placeholder="Orden" />
+                <button class="btn-primary" @onclick="SaveDetail">
+                    @(editingDetailId > 0 ? "Actualizar" : "Agregar")
+                </button>
+                @if (editingDetailId > 0)
+                {
+                    <button class="btn-secondary" @onclick="ResetDetailForm">Cancelar</button>
+                }
+            </div>
+
+            <table class="data-table" style="margin-top:16px;">
+                <thead>
+                    <tr>
+                        <th>Acciones</th>
+                        <th>Código</th>
+                        <th>Valor</th>
+                        <th>Orden</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (details.Count == 0)
+                    {
+                        <tr><td colspan="5" class="empty">Sin valores</td></tr>
+                    }
+                    else
+                    {
+                        @foreach (var d in details)
+                        {
+                            <tr>
+                                <td>
+                                    <button class="btn-icon" title="Editar" @onclick="() => EditDetail(d)">
+                                        <i class="ti ti-pencil"></i>
+                                    </button>
+                                    <button class="btn-icon @(d.IsActive ? "btn-icon-danger" : "btn-icon-success")"
+                                            title="@(d.IsActive ? "Desactivar" : "Activar")"
+                                            @onclick="() => ToggleDetail(d.Id)">
+                                        <i class="ti @(d.IsActive ? "ti-circle-off" : "ti-circle-check")"></i>
+                                    </button>
+                                </td>
+                                <td>@d.Code</td>
+                                <td>@d.Value</td>
+                                <td>@d.Order</td>
+                                <td>
+                                    <span class="badge @(d.IsActive ? "badge-active" : "badge-inactive")">
+                                        @(d.IsActive ? "Activo" : "Inactivo")
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+            <div class="modal-actions" style="margin-top:16px;">
+                <button class="btn-secondary" @onclick="CloseDetails">Cerrar</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<GeneralParameterDto> parameters = new();
+
+    // Formulario categoría
+    private bool showForm = false;
+    private bool isEditing = false;
+    private FormModel form = new();
+    private long editingId = 0;
+
+    // Toggle categoría
+    private bool showConfirm = false;
+    private GeneralParameterDto? toToggle;
+
+    // Detalles
+    private bool showDetails = false;
+    private GeneralParameterDto? selectedCategory;
+    private List<DetailParameterDto> details = new();
+    private DetailFormModel detailForm = new();
+    private long editingDetailId = 0;
+
+    protected override async Task OnInitializedAsync() => await Load();
+
+    private async Task Load()
+    {
+        await LoadingService.RunAsync(async () =>
+        {
+            parameters = await ParameterService.GetGeneralParametersAsync();
+        });
+    }
+
+    private void OpenCreate()
+    {
+        isEditing = false;
+        form = new FormModel();
+        showForm = true;
+    }
+
+    private void OpenEdit(GeneralParameterDto p)
+    {
+        isEditing = true;
+        editingId = p.Id;
+        form = new FormModel { Code = p.Code, Name = p.Name, Description = p.Description };
+        showForm = true;
+    }
+
+    private void CloseForm() => showForm = false;
+
+    private async Task SaveForm()
+    {
+        showForm = false;
+        await LoadingService.RunAsync(async () =>
+        {
+            Domain.Common.GenericResponse response;
+
+            if (isEditing)
+            {
+                response = await ParameterService.UpdateGeneralParameterAsync(new UpdateGeneralParameterDto
+                {
+                    Id = editingId,
+                    Code = form.Code,
+                    Name = form.Name,
+                    Description = form.Description
+                });
+            }
+            else
+            {
+                response = await ParameterService.CreateGeneralParameterAsync(new CreateGeneralParameterDto
+                {
+                    Code = form.Code,
+                    Name = form.Name,
+                    Description = form.Description
+                });
+            }
+
+            if (response.Success)
+            {
+                NotificationService.ShowSuccess(isEditing ? "Categoría actualizada" : "Categoría creada");
+                parameters = await ParameterService.GetGeneralParametersAsync();
+            }
+            else
+            {
+                NotificationService.ShowError(response.ResponseMessage);
+            }
+        });
+    }
+
+    private void ConfirmToggle(GeneralParameterDto p)
+    {
+        toToggle = p;
+        showConfirm = true;
+    }
+
+    private void CancelToggle()
+    {
+        toToggle = null;
+        showConfirm = false;
+    }
+
+    private async Task ExecuteToggle()
+    {
+        if (toToggle is null) return;
+        showConfirm = false;
+        var id = toToggle.Id;
+
+        await LoadingService.RunAsync(async () =>
+        {
+            var response = await ParameterService.ToggleGeneralParameterStatusAsync(id);
+            if (response.Success)
+            {
+                NotificationService.ShowSuccess("Estado actualizado");
+                parameters = await ParameterService.GetGeneralParametersAsync();
+            }
+            else
+            {
+                NotificationService.ShowError(response.ResponseMessage);
+            }
+        });
+
+        toToggle = null;
+    }
+
+    // ===== Detalles =====
+    private async Task OpenDetails(GeneralParameterDto p)
+    {
+        selectedCategory = p;
+        editingDetailId = 0;
+        detailForm = new DetailFormModel();
+        showDetails = true;
+        await LoadDetails();
+    }
+
+    private async Task LoadDetails()
+    {
+        if (selectedCategory is null) return;
+        details = await ParameterService.GetDetailsByGeneralAsync(selectedCategory.Id);
+    }
+
+    private void CloseDetails()
+    {
+        showDetails = false;
+        selectedCategory = null;
+        details = new();
+    }
+
+    private void EditDetail(DetailParameterDto d)
+    {
+        editingDetailId = d.Id;
+        detailForm = new DetailFormModel { Code = d.Code, Value = d.Value, Order = d.Order };
+    }
+
+    private void ResetDetailForm()
+    {
+        editingDetailId = 0;
+        detailForm = new DetailFormModel();
+    }
+
+    private async Task SaveDetail()
+    {
+        if (selectedCategory is null) return;
+
+        await LoadingService.RunAsync(async () =>
+        {
+            Domain.Common.GenericResponse response;
+
+            if (editingDetailId > 0)
+            {
+                response = await ParameterService.UpdateDetailAsync(new UpdateDetailParameterDto
+                {
+                    Id = editingDetailId,
+                    Code = detailForm.Code,
+                    Value = detailForm.Value,
+                    Order = detailForm.Order
+                });
+            }
+            else
+            {
+                response = await ParameterService.CreateDetailAsync(new CreateDetailParameterDto
+                {
+                    GeneralParameterId = selectedCategory.Id,
+                    Code = detailForm.Code,
+                    Value = detailForm.Value,
+                    Order = detailForm.Order
+                });
+            }
+
+            if (response.Success)
+            {
+                NotificationService.ShowSuccess(editingDetailId > 0 ? "Valor actualizado" : "Valor agregado");
+                ResetDetailForm();
+                await LoadDetails();
+            }
+            else
+            {
+                NotificationService.ShowError(response.ResponseMessage);
+            }
+        });
+    }
+
+    private async Task ToggleDetail(long id)
+    {
+        await LoadingService.RunAsync(async () =>
+        {
+            var response = await ParameterService.ToggleDetailStatusAsync(id);
+            if (response.Success)
+            {
+                NotificationService.ShowSuccess("Estado actualizado");
+                await LoadDetails();
+            }
+            else
+            {
+                NotificationService.ShowError(response.ResponseMessage);
+            }
+        });
+    }
+
+    private class FormModel
+    {
+        public string Code { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+
+    private class DetailFormModel
+    {
+        public string Code { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
+        public int Order { get; set; }
+    }
+}

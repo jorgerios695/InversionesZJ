@@ -287,6 +287,55 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.ToTable("Payments", "OPE");
                 });
 
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Parameters.DetailParameter", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("GeneralParameterId")
+                        .HasColumnType("bigint");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Order")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GeneralParameterId");
+
+                    b.ToTable("DetailParameters", "PAR");
+                });
+
             modelBuilder.Entity("InversionesZJ.Domain.Entities.Parameters.GeneralParameter", b =>
                 {
                     b.Property<long>("Id")
@@ -294,6 +343,11 @@ namespace InversionesZJ.Infrastructure.Migrations
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -310,10 +364,10 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Key")
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -321,14 +375,9 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("Key")
+                    b.HasIndex("Code")
                         .IsUnique();
 
                     b.ToTable("GeneralParameters", "PAR");
@@ -651,6 +700,17 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.Navigation("Loan");
                 });
 
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Parameters.DetailParameter", b =>
+                {
+                    b.HasOne("InversionesZJ.Domain.Entities.Parameters.GeneralParameter", "GeneralParameter")
+                        .WithMany("Details")
+                        .HasForeignKey("GeneralParameterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("GeneralParameter");
+                });
+
             modelBuilder.Entity("InversionesZJ.Domain.Entities.Security.PasswordResetToken", b =>
                 {
                     b.HasOne("InversionesZJ.Domain.Entities.Security.User", "User")
@@ -696,6 +756,11 @@ namespace InversionesZJ.Infrastructure.Migrations
                     b.Navigation("Delinquencies");
 
                     b.Navigation("Payments");
+                });
+
+            modelBuilder.Entity("InversionesZJ.Domain.Entities.Parameters.GeneralParameter", b =>
+                {
+                    b.Navigation("Details");
                 });
 
             modelBuilder.Entity("InversionesZJ.Domain.Entities.Parameters.LoanType", b =>

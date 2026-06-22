@@ -1,25 +1,21 @@
 ﻿using InversionesZJ.Domain.Entities.Parameters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace InversionesZJ.Infrastructure.Data.Configurations.TableConfiguration.Parameters
+namespace InversionesZJ.Infrastructure.Data.Configurations.TableConfiguration.Parameters;
+
+public class GeneralParameterConfig : IEntityTypeConfiguration<GeneralParameter>
 {
-    public class GeneralParameterConfig : IEntityTypeConfiguration<GeneralParameter>
+    public void Configure(EntityTypeBuilder<GeneralParameter> builder)
     {
-        public void Configure(EntityTypeBuilder<GeneralParameter> builder)
-        {
-            builder.ToTable("GeneralParameters", schema: "PAR");
+        builder.ToTable("GeneralParameters", schema: "PAR");
 
-            builder.HasKey(x => x.Id);
+        builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.Key).IsRequired().HasMaxLength(100);
-            builder.Property(x => x.Value).IsRequired().HasMaxLength(500);
-            builder.Property(x => x.Description).HasMaxLength(250);
+        builder.Property(x => x.Code).IsRequired().HasMaxLength(50);
+        builder.Property(x => x.Name).IsRequired().HasMaxLength(150);
+        builder.Property(x => x.Description).HasMaxLength(250);
 
-            builder.HasIndex(x => x.Key).IsUnique();
-        }
+        builder.HasIndex(x => x.Code).IsUnique();
     }
 }

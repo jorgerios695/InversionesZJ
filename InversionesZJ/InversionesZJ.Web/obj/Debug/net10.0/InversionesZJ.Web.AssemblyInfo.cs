@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InversionesZJ.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01bdb1c5af4858f7e0950e1d1bd1f3f5b997df1e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4188c4d38155296de2474f2a37b99d5170819ce4")]
 [assembly: System.Reflection.AssemblyProductAttribute("InversionesZJ.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InversionesZJ.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

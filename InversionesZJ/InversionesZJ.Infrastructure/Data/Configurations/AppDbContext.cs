@@ -34,6 +34,7 @@ public  class AppDbContext : DbContext
     // shema PAR
     public DbSet<LoanType> LoanTypes => Set<LoanType>();
     public DbSet<GeneralParameter> GeneralParameters => Set<GeneralParameter>();
+    public DbSet<DetailParameter> DetailParameters => Set<DetailParameter>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

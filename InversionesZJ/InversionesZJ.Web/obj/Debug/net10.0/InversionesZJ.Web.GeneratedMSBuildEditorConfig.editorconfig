@@ -59,6 +59,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOb3RGb3VuZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Jorge_Excellentiam/Jorge Rios/InversionesZJ/InversionesZJ/InversionesZJ.Web/Components/Pages/Parameters/Parameters.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQYXJhbWV0ZXJzXFBhcmFtZXRlcnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Jorge_Excellentiam/Jorge Rios/InversionesZJ/InversionesZJ/InversionesZJ.Web/Components/Pages/Security/Roles/CreateRole.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZWN1cml0eVxSb2xlc1xDcmVhdGVSb2xlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
